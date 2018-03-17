@@ -8,11 +8,13 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "symfony/http-foundation": "^3.4"
+        
     },
     "autoload":{
         "psr-4":{
-            "MeuProjeto\\":"src/"
+            "PPI2\\":"src/"
         }
     }
 }
