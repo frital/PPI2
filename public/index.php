@@ -1,3 +1,2 @@
 <?php
-
-echo 'Olá amigos!!';
+require __DIR__.'/../src/bootstrap.php';
