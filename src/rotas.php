@@ -15,5 +15,6 @@ $rotas->add('teste', $rota);
 $contexto = new RequestContext();
 $contexto->fromRequest(Request::createFromGlobals());
 
+
 $matcher = new UrlMatcher($rotas, $contexto);
 
