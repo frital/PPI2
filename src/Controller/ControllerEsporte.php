@@ -14,9 +14,11 @@ class ControllerEsporte {
         $this->contexto = $contexto;
     }
     
-    public function msgInicial(){
-        //criar um objeto do tipo entidade // buscar os dados no banco  de dado 
-        return $this->response->setContent('mensagem qualquer');
+    public function msgInicial($parametro = ''){
+        echo 'a'.$parametro;
+
+//criar um objeto do tipo entidade // buscar os dados no banco  de dado 
+       //return $this->response->setContent('categoria: '.$parametro);
     }
     
 
