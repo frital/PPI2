@@ -23,16 +23,16 @@ $matcher = new UrlMatcher($rotas, $contexto);
 try {
     $atributos = $matcher->match($contexto->getPathInfo());
     
-    print_r($atributos);/*
+    
     $controller = $atributos['_controller'];
     $method = $atributos['method'];
     $obj = new $controller($response, $contexto);
-
-    $parametros = '';
+    $parametros = $atributos['suffix'];
+/*    $parametros = '';
     if (isset($atributos['sufix']))
-        $parametros = $atributos['sufix'];
-
-    $obj->$method($parametros);*/
+        
+*/
+    $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('Not found fde', Response::HTTP_NOT_FOUND);
 }
