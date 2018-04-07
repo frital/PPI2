@@ -15,6 +15,11 @@ class ControllerEsporte {
     }
     
     public function msgInicial($parametro){
+        
+     if(!is_numeric($parametro) && $parametro != ''){
+          $parametro = 'não localizado';
+      }
+      
       
 
 //criar um objeto do tipo entidade // buscar os dados no banco  de dado 

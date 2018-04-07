@@ -26,12 +26,8 @@ try {
     
     $controller = $atributos['_controller'];
     $method = $atributos['method'];
-    $obj = new $controller($response, $contexto);
     $parametros = $atributos['suffix'];
-/*    $parametros = '';
-    if (isset($atributos['sufix']))
-        
-*/
+    $obj = new $controller($response, $contexto);
     $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('Not found fde', Response::HTTP_NOT_FOUND);
