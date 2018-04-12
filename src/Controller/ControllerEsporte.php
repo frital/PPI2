@@ -3,6 +3,7 @@
  
  use Symfony\Component\HttpFoundation\Response;
  use Symfony\Component\Routing\RequestContext;
+ use PPI2\Modelos\ModeloProdutos;
  
 class ControllerEsporte {
     
@@ -26,5 +27,11 @@ class ControllerEsporte {
        return $this->response->setContent('categoria: '.$parametro);
     }
     
-
+    
+    public function listarProdutos(){
+        $modelo = new ModeloProdutos();
+        $dados = $modelo->listarProdutos();
+        return $this->response->setContent($dados[0]->descricao);
+        
+    }
 }
