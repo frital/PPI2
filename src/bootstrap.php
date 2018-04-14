@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 include 'rotas.php';
 
@@ -20,6 +22,9 @@ $response = Response::create();
 $matcher = new UrlMatcher($rotas, $contexto);
 //print_r($contexto->getPathInfo());
 
+$loader = new FilesystemLoader(__DIR__.'/View');
+$environment = new Environment($loader);
+
 try {
     $atributos = $matcher->match($contexto->getPathInfo());
     
@@ -27,7 +32,7 @@ try {
     $controller = $atributos['_controller'];
     $method = $atributos['method'];
     $parametros = $atributos['suffix'];
-    $obj = new $controller($response, $contexto);
+    $obj = new $controller($response, $contexto, $environment);
     $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('Not found fde', Response::HTTP_NOT_FOUND);
