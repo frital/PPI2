@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Visão Base</title>
+        <title>Meu projeto - {% block titulo %}{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <div>TQualquer coisa aqui !! texto ... &n&nbsp;<br>
-            <br>
-            <br>
-            <br>
-            <br>
-            {% for produto in dados %}
-                Produto: {{ produto.id }} <br>
-                Descrição: {{ produto.descricao|e }} <br> <div></div>
-                Preço: {{ produto.preco }} <br>
-                <br>
-                <hr>
-            {% endfor %}
+        {% block conteudo %}
+            {{ include('componentes/menu.twig') }}
+            <div>Texto da master<br>   
+                {# {% for produto in dados %}
+                     Produto: {{ produto.id }} <br>
+                     Descrição: {{ produto.descricao|e }} <br> <div></div>
+                     Preço: {{ produto.preco }} <br>
+                     <br>
+                     <hr>
+                 {% endfor %}#}
             </div>
+        {% endblock %}
+
+        {% block rodape %}
+            {# aqui vamos injetar os js .. jquery e tals ... #}
+        {% endblock %}
+
     </body>
 </html>

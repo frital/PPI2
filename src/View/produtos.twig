@@ -1,0 +1,14 @@
+{% extends "master.twig" %}
+
+{% block conteudo %}
+    {{ parent() }}
+    <br>
+    sobrescrevi o conteudo
+    <br>
+
+{% endblock %}
+
+{% block rodape %}
+    {{ parent() }}
+    {# js que só vai nesta página #}
+{% endblock %}

@@ -27,14 +27,14 @@ class ControllerEsporte {
       
 
 //criar um objeto do tipo entidade // buscar os dados no banco  de dado 
-       return $this->response->setContent($this->twig->render('master.twig'));
+       return $this->response->setContent($this->twig->render('produtos.twig'));
     }
     
     
     public function listarProdutos(){
         $modelo = new ModeloProdutos();
         $dados = $modelo->listarProdutos();
-        return $this->response->setContent($this->twig->render('master.twig', ['dados' => $dados]));
+        return $this->response->setContent($this->twig->render('produtos.twig', ['dados' => $dados]));
         
     }
 }
