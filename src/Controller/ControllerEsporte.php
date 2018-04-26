@@ -27,7 +27,10 @@ class ControllerEsporte {
       
 
 //criar um objeto do tipo entidade // buscar os dados no banco  de dado 
-       return $this->response->setContent($this->twig->render('produtos.twig'));
+      $sal = '25klP';
+      
+      return $this->response->setContent(sha1(md5('a'.$sal)));
+       //return $this->response->setContent($this->twig->render('produtos.twig'));
     }
     
     
