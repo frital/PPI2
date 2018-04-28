@@ -4,15 +4,24 @@ $(document).ready(function () {
             type: 'GET',
             url: '/texto.html',
             data: "",
-            success: function(dados){
+            success: function (dados) {
                 $("#div_retorno").html(dados);
             },
-            beforeSend: function(){
-                $("#div_retorno").css({display: "block"}); 
+            beforeSend: function () {
+                $("#processando").css({display: "block"});
+            },
+            complete: function () {
+                setTimeout(function () {
+                    $("#processando").css({display: "none"});
+                }, 5000);
+            },
+            error: function () {
+                $("#div_retorno").html("Erro em chamar a função.");
+                setTimeout(function () {
+                    $("#div_retorno").css({display: "none"});
+                }, 5000);
             }
         });
     });
-
-
 });
 

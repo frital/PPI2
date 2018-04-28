@@ -18,20 +18,23 @@ $contexto->fromRequest(Request::createFromGlobals());
 
 $response = Response::create();
 
-    
+
 $matcher = new UrlMatcher($rotas, $contexto);
 //print_r($contexto->getPathInfo());
 
-$loader = new FilesystemLoader(__DIR__.'/View');
+$loader = new FilesystemLoader(__DIR__ . '/View');
 $environment = new Environment($loader);
 
 try {
     $atributos = $matcher->match($contexto->getPathInfo());
-    
-    
+
+
     $controller = $atributos['_controller'];
     $method = $atributos['method'];
-    $parametros = $atributos['suffix'];
+    if (isset($atributos['suffix']))
+        $parametros = $atributos['suffix'];
+    else
+        $parametros = '';
     $obj = new $controller($response, $contexto, $environment);
     $obj->$method($parametros);
 } catch (Exception $ex) {
