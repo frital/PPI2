@@ -6,9 +6,9 @@
     <form action="/cadastro" method="POST" class="form-group center-block text-center">
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">Nome</span>
+                <span class="input-group-text">ID</span>
             </div>
-            <input type="text" name="nome" class="form-control"/>
+            <input type="text" name="id" class="form-control" disabled="true"/>
         </div>
 
         <div class="input-group">
@@ -16,6 +16,12 @@
                 <span class="input-group-text">Descrição</span>
             </div>
             <input type="text" name="descricao" class="form-control"/>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Preço</span>
+            </div>
+            <input type="number" name="preco" class="form-control"/>
         </div>
         <div class="">  
             <button type="submit" class="btn btn-success">Cadastrar</button>

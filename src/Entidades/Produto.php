@@ -8,8 +8,9 @@ class Produto {
     private $descricao;
     private $preco;
     
-    function __construct() {
-        
+    function __construct($descricao, $preco) {
+        $this->descricao = $descricao;
+        $this->preco = $preco;
     }
     
     function getId() {
