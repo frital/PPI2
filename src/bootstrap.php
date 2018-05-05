@@ -13,8 +13,9 @@ use Twig\Environment;
 
 include 'rotas.php';
 
+$request = Request::createFromGlobals();
 $contexto = new RequestContext();
-$contexto->fromRequest(Request::createFromGlobals());
+$contexto->fromRequest($request);
 
 $response = Response::create();
 
@@ -36,7 +37,7 @@ try {
         $parametros = $atributos['suffix'];
     else
         $parametros = '';
-    $obj = new $controller($response, $contexto, $environment);
+    $obj = new $controller($response, $request, $environment);
     $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('Not found fde', Response::HTTP_NOT_FOUND);

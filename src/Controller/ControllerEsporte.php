@@ -2,7 +2,8 @@
  namespace PPI2\Controller;
  
  use Symfony\Component\HttpFoundation\Response;
- use Symfony\Component\Routing\RequestContext;
+ use Symfony\Component\HttpFoundation\Request;
+ 
  use PPI2\Modelos\ModeloProdutos;
  use Twig\Environment;
  
@@ -12,7 +13,7 @@ class ControllerEsporte {
     private $contexto;
     private $twig;
     
-    public function __construct(Response $response, RequestContext $contexto, Environment $twig){
+    public function __construct(Response $response, Request $contexto, Environment $twig){
         $this->response = $response;
         $this->contexto = $contexto;
         $this->twig = $twig;

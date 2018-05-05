@@ -2,7 +2,7 @@
  namespace PPI2\Controller;
  
  use Symfony\Component\HttpFoundation\Response;
- use Symfony\Component\Routing\RequestContext;
+ use Symfony\Component\HttpFoundation\Request;
  use Twig\Environment;
  
 class ControllerCadastro {
@@ -11,7 +11,7 @@ class ControllerCadastro {
     private $contexto;
     private $twig;
     
-    public function __construct(Response $response, RequestContext $contexto, Environment $twig){
+    public function __construct(Response $response, Request $contexto, Environment $twig){
         $this->response = $response;
         $this->contexto = $contexto;
         $this->twig = $twig;
@@ -23,7 +23,11 @@ class ControllerCadastro {
     }
     
     public function cadastro(){
-        print_r($this->contexto);
+   //     print_r($this->contexto->get('nome'));
+        echo $this->contexto->get('nome');
+        echo '<br>';
+        echo '<br>';
+        echo $this->contexto->get('descricao');
         //echo 'vamos cadastrar';
         
     }
