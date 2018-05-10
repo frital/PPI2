@@ -27,19 +27,18 @@ class ControllerCadastro {
 
     public function cadastro() {
         // validação
-        print_r($this->contexto);
-        /*
+        
+        
         $descricao = $this->contexto->get('descricao');
         $preco = $this->contexto->get('preco');
         // depois de validado
         $produto = new Produto($descricao, $preco);
         $modeloProduto = new ModeloProdutos();
         if ($id = $modeloProduto->cadastrar($produto))
-            return $this->response->setContent('<script>alert("Produto ' . $id . ' inserido com sucesso")</script>');
+            echo ("Produto $id inserido com sucesso");
         else 
-            print_r ("erro na inserção");
-         * 
-         */
+            echo "erro na inserção";
+         
         
     }
 

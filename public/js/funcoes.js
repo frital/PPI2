@@ -11,9 +11,7 @@ $(document).ready(function () {
                 $("#processando").css({display: "block"});
             },
             complete: function () {
-                setTimeout(function () {
                     $("#processando").css({display: "none"});
-                }, 5000);
             },
             error: function () {
                 $("#div_retorno").html("Erro em chamar a função.");
@@ -38,9 +36,7 @@ $(document).ready(function () {
                 $("#processando").css({display: "block"});
             },
             complete: function () {
-                setTimeout(function () {
                     $("#processando").css({display: "none"});
-                }, 5000);
             },
             error: function () {
                 $("#div_retorno").html("Erro em chamar a função.");
