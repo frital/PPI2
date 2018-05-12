@@ -10,6 +10,19 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use PPI2\Util\Sessao;
+
+$sessao = new Sessao();
+$sessao->start();
+
+
+//$sessao->add("Usuario", 'Chris');
+$sessao->del();
+
+
+
+
+
 
 include 'rotas.php';
 
@@ -37,7 +50,7 @@ try {
         $parametros = $atributos['suffix'];
     else
         $parametros = '';
-    $obj = new $controller($response, $request, $environment);
+    $obj = new $controller($response, $request, $environment, $sessao);
     $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('Not found fde', Response::HTTP_NOT_FOUND);
