@@ -37,8 +37,18 @@ class ControllerCadastro {
 
     public function cadastro() {
         // validação
+        $imagem = $this->contexto->files->get('imagem');
+        echo $imagem->getClientOriginalName();
+       // echo $imagem->getClientMimeType();
+       /* if($imagem->getSize() > 2000000){
+            echo '<br>muito grande';
+            
+        }else{
+            echo '<br>tamanho válido';
+        }*/
         
-        print_r($this->contexto->files->all());     
+// falta mover patra concretizar o upload
+        
        /* 
           $descricao = $this->contexto->get('descricao');
           $preco = $this->contexto->get('preco');
