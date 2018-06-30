@@ -25,29 +25,31 @@ class ControllerCadastro {
     }
 
     public function show() {
-        if ($this->sessao->existe('Usuario'))
-            return $this->response->setContent($this->twig->render('cadastro.twig'));
-        else{
-            $destino = '/login';
-            $redirecionar = new RedirectResponse($destino);
-            $redirecionar->send();
-            
-        }
+        //if ($this->sessao->existe('Usuario'))
+        return $this->response->setContent($this->twig->render('cadastro.twig'));
+        /*   else{
+          $destino = '/login';
+          $redirecionar = new RedirectResponse($destino);
+          $redirecionar->send();
+
+          } */
     }
 
     public function cadastro() {
         // validação
-
-
-        $descricao = $this->contexto->get('descricao');
-        $preco = $this->contexto->get('preco');
-        // depois de validado
-        $produto = new Produto($descricao, $preco);
-        $modeloProduto = new ModeloProdutos();
-        if ($id = $modeloProduto->cadastrar($produto))
-            echo ("Produto $id inserido com sucesso");
-        else
-            echo "erro na inserção";
+        
+        print_r($this->contexto->files->all());     
+       /* 
+          $descricao = $this->contexto->get('descricao');
+          $preco = $this->contexto->get('preco');
+          // depois de validado
+          $produto = new Produto($descricao, $preco);
+          $modeloProduto = new ModeloProdutos();
+          if ($id = $modeloProduto->cadastrar($produto))
+          echo ("Produto $id inserido com sucesso");
+          else
+          echo "erro na inserção";
+         */
     }
 
 }

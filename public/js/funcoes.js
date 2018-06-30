@@ -25,10 +25,16 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#formCadastro").submit(function (e) {
        e.preventDefault(); // evita que o formulário seja submetido
+       
+       var formData = new FormData(this);
        $.ajax({
             type: 'POST',
             url: '/cadastro',
-            data: $("#formCadastro").serializeArray(),
+            data: formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            
             success: function (dados) {
                 $("#div_retorno").html(dados);
             },
